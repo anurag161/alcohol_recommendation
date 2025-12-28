@@ -2,10 +2,20 @@ import Groq from "groq-sdk";
 import { NextResponse } from "next/server";
 import { prisma } from "../../../lib/db";
 
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
-
 export async function POST(req: Request) {
   try {
+    // Verify API key exists
+    if (!process.env.GROQ_API_KEY) {
+      console.error("GROQ_API_KEY is not set");
+      return NextResponse.json({ 
+        error: "API configuration error. Please contact support.",
+        recommendations: []
+      }, { status: 500 });
+    }
+
+    // Initialize Groq client inside the function
+    const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+
     const body = await req.json();
     const { state, budget, tasteProfile, occasion } = body;
 
@@ -47,8 +57,8 @@ export async function POST(req: Request) {
           {
             "recommendations": [
               {
-                "name": "Brand Name from database",
-                "category": "Category from database",
+                "name": "Brand Name from database and web",
+                "category": "Category from database and web",
                 "price": "Estimated ₹X,XXX based on quality",
                 "description": "Tasting notes matching user's taste profile",
                 "serving": "Safe serving advice (e.g., 'Recommended: 2 servings of 60ml over 2 hours')",
