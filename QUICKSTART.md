@@ -10,7 +10,7 @@ brew install postgresql@15
 brew services start postgresql@15
 ```
 
-### Ubuntu/Debian
+### Ubuntu
 ```bash
 sudo apt update
 sudo apt install postgresql postgresql-contrib
