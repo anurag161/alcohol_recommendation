@@ -34,7 +34,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <Wine className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold amber-text">Daru GPT</span>
+              <span className="text-xl font-bold amber-text">5 Spirits</span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-4">
               Your premium AI sommelier for personalized spirit recommendations.
@@ -119,7 +119,7 @@ export default function Footer() {
         <div className="border-t border-border/20 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-              <span>© 2024 Daru GPT. All rights reserved.</span>
+              <span>© 2024 5 Spirits. All rights reserved.</span>
               <span className="hidden md:block">•</span>
               <span>Made with ❤️ for responsible drinking</span>
             </div>

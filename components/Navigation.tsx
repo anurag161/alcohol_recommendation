@@ -40,7 +40,7 @@ export default function Navigation() {
               className="flex items-center space-x-2"
             >
               <Wine className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold amber-text">Daru GPT</span>
+              <span className="text-xl font-bold amber-text">5 Spirits</span>
             </motion.div>
           </Link>
 

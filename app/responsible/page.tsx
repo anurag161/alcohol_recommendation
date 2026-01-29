@@ -133,7 +133,7 @@ export default function ResponsiblePage() {
               Responsible Drinking
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              At Daru GPT, we believe in promoting responsible consumption.
+              At 5 Spirits, we believe in promoting responsible consumption.
               Here are guidelines, facts, and resources to help you drink safely.
             </p>
           </motion.div>
@@ -243,7 +243,7 @@ export default function ResponsiblePage() {
                 <p>
                   <strong className="text-foreground">Age Restrictions:</strong> The legal drinking age in India varies by state,
                   but most states require individuals to be 21 years or older to purchase and consume alcohol.
-                  Daru GPT strictly enforces age verification.
+                  5 Spirits strictly enforces age verification.
                 </p>
 
                 <p>

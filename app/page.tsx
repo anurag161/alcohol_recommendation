@@ -23,19 +23,19 @@ const valueProps = [
     icon: MapPin,
     title: 'State-wise Pricing',
     description: 'Get accurate pricing information tailored to your location with real-time updates.',
-    color: 'text-blue-400'
+    color: 'text-red-500'
   },
   {
     icon: Target,
     title: 'Taste-based Matching',
     description: 'Our AI analyzes your preferences to recommend spirits that perfectly match your palate.',
-    color: 'text-green-400'
+    color: 'text-red-400'
   },
   {
     icon: Shield,
     title: 'Safe Drinking Guides',
     description: 'Expert recommendations on responsible consumption and standard serving sizes.',
-    color: 'text-orange-400'
+    color: 'text-neutral-400'
   }
 ];
 
@@ -213,7 +213,7 @@ export default function Home() {
                 className="text-center mb-12"
               >
                 <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-                  Why Choose Daru GPT?
+                  Why Choose 5 Spirits?
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                   Experience the future of spirit discovery with our intelligent platform
@@ -312,7 +312,7 @@ export default function Home() {
                       Ready to Discover?
                     </h3>
                     <p className="text-muted-foreground mb-6">
-                      Join thousands of spirit enthusiasts who trust Daru GPT for their premium selections.
+                      Join thousands of spirit enthusiasts who trust 5 Spirits for their premium selections.
                     </p>
                     <Link
                       href="/discover"

@@ -109,7 +109,7 @@ export default function AgeVerification({ onVerified }: AgeVerificationProps) {
               transition={{ delay: 0.6 }}
               className="text-muted-foreground mb-8"
             >
-              To access Daru GPT, you must be 21 years or older.
+              To access 5 Spirits, you must be 21 years or older.
               Please enter your date of birth below.
             </motion.p>
 
@@ -264,7 +264,7 @@ export default function AgeVerification({ onVerified }: AgeVerificationProps) {
               className="text-xs text-muted-foreground mt-6 leading-relaxed"
             >
               By entering this site, you certify that you are of legal drinking age in your country.
-              Daru GPT promotes responsible drinking and does not encourage underage consumption.
+              5 Spirits promotes responsible drinking and does not encourage underage consumption.
             </motion.p>
           </div>
         </motion.div>

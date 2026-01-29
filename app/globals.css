@@ -2,25 +2,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
-/* 2. Variable Definitions */
+/* 2. Variable Definitions - Red, Black, Grey theme */
 :root {
-  --background: #0f172a; /* Deep charcoal */
-  --foreground: #f1f5f9;
-  --primary: #fbbf24; /* Amber/gold */
-  --primary-foreground: #0f172a;
-  --secondary: #1e293b;
-  --secondary-foreground: #f1f5f9;
-  --muted: #334155;
-  --muted-foreground: #94a3b8;
-  --accent: #475569;
-  --accent-foreground: #f1f5f9;
+  --background: #0a0a0a; /* Black */
+  --foreground: #fafafa;
+  --primary: #b91c1c; /* Red */
+  --primary-foreground: #ffffff;
+  --secondary: #262626;
+  --secondary-foreground: #fafafa;
+  --muted: #404040;
+  --muted-foreground: #a3a3a3;
+  --accent: #525252;
+  --accent-foreground: #fafafa;
   --destructive: #dc2626;
   --destructive-foreground: #fef2f2;
-  --border: #334155;
-  --input: #1e293b;
-  --ring: #fbbf24;
-  --glass-bg: rgba(15, 23, 42, 0.8);
-  --glass-border: rgba(251, 191, 36, 0.2);
+  --border: #404040;
+  --input: #262626;
+  --ring: #b91c1c;
+  --glass-bg: rgba(10, 10, 10, 0.85);
+  --glass-border: rgba(185, 28, 28, 0.25);
 }
 
 /* 3. Theme Configuration */
@@ -53,32 +53,33 @@
 }
 
 .glass-card {
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(38, 38, 38, 0.7);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(251, 191, 36, 0.15);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(185, 28, 28, 0.2);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
 }
 
 .glass-input {
-  background: rgba(30, 41, 59, 0.8);
+  background: rgba(38, 38, 38, 0.9);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(251, 191, 36, 0.2);
+  border: 1px solid rgba(185, 28, 28, 0.25);
 }
 
-.gold-glow {
-  box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+.gold-glow,
+.primary-glow {
+  box-shadow: 0 0 20px rgba(185, 28, 28, 0.35);
 }
 
 .amber-text {
-  color: #fbbf24;
+  color: #b91c1c;
 }
 
 .charcoal-bg {
-  background-color: #0f172a;
+  background-color: #0a0a0a;
 }
 
 .gradient-bg {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: linear-gradient(135deg, #0a0a0a 0%, #262626 50%, #171717 100%);
 }
 
 /* 5. Base Element Styles */
@@ -101,14 +102,14 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1e293b;
+  background: #262626;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #fbbf24;
+  background: #b91c1c;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #f59e0b;
+  background: #991b1b;
 }

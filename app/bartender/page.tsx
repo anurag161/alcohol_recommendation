@@ -24,7 +24,7 @@ export default function BartenderPage() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: "👋 Hello! I'm Bart, your AI bartender at Daru GPT. I can help you discover amazing spirits, suggest cocktails, and provide responsible drinking guidance. What can I help you with today?",
+      content: "👋 Hello! I'm Bart, your AI bartender at 5 Spirits. I can help you discover amazing spirits, suggest cocktails, and provide responsible drinking guidance. What can I help you with today?",
       timestamp: new Date()
     }
   ]);
@@ -72,9 +72,19 @@ export default function BartenderPage() {
 
       const data = await response.json();
 
+      if (!response.ok) {
+        const apiError = typeof data?.error === 'string' ? data.error : "Something went wrong. Please try again.";
+        setMessages(prev => [...prev, {
+          role: 'assistant',
+          content: apiError,
+          timestamp: new Date()
+        }]);
+        return;
+      }
+
       const assistantMessage: Message = {
         role: 'assistant',
-        content: data.response,
+        content: data.response ?? "I didn't get a response. Please try again.",
         timestamp: new Date()
       };
 
@@ -83,7 +93,7 @@ export default function BartenderPage() {
       console.error('Error:', error);
       const errorMessage: Message = {
         role: 'assistant',
-        content: "I'm sorry, I'm having trouble processing your request right now. Please try again in a moment.",
+        content: "I'm sorry, I'm having trouble processing your request right now. Please check your connection and try again.",
         timestamp: new Date()
       };
       setMessages(prev => [...prev, errorMessage]);
@@ -92,7 +102,7 @@ export default function BartenderPage() {
     }
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       sendMessage();
@@ -103,14 +113,14 @@ export default function BartenderPage() {
     setMessages([
       {
         role: 'assistant',
-        content: "👋 Hello! I'm Bart, your AI bartender at Daru GPT. I can help you discover amazing spirits, suggest cocktails, and provide responsible drinking guidance. What can I help you with today?",
+        content: "👋 Hello! I'm Bart, your AI bartender at 5 Spirits. I can help you discover amazing spirits, suggest cocktails, and provide responsible drinking guidance. What can I help you with today?",
         timestamp: new Date()
       }
     ]);
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-neutral-100">
       <Navigation />
 
       <div className="pt-20 pb-16">
@@ -127,7 +137,7 @@ export default function BartenderPage() {
             <h1 className="text-3xl sm:text-4xl font-bold text-black mb-4">
               Chat with Bart
             </h1>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-neutral-600 max-w-2xl mx-auto">
               Your personal AI bartender is here to help you discover amazing drinks,
               suggest cocktails, and provide responsible drinking guidance.
             </p>
@@ -143,17 +153,17 @@ export default function BartenderPage() {
             {/* Chat Header */}
             <div className="bg-black text-white p-4 flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
+                <div className="w-10 h-10 bg-neutral-700 rounded-full flex items-center justify-center">
                   <Bot className="h-5 w-5" />
                 </div>
                 <div>
                   <h3 className="font-semibold">Bart</h3>
-                  <p className="text-xs text-gray-300">AI Bartender • Online</p>
+                  <p className="text-xs text-neutral-300">AI Bartender • Online</p>
                 </div>
               </div>
               <div className="flex items-center space-x-2">
-                <Sparkles className="h-4 w-4 text-yellow-400" />
-                <span className="text-xs text-gray-300">AI Powered</span>
+                <Sparkles className="h-4 w-4 text-red-400" />
+                <span className="text-xs text-neutral-300">AI Powered</span>
               </div>
             </div>
 
@@ -175,7 +185,7 @@ export default function BartenderPage() {
                       <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
                         message.role === 'user'
                           ? 'bg-black'
-                          : 'bg-gray-200'
+                          : 'bg-neutral-200'
                       }`}>
                         {message.role === 'user' ? (
                           <User className="h-4 w-4 text-white" />
@@ -188,14 +198,14 @@ export default function BartenderPage() {
                       <div className={`rounded-2xl px-4 py-3 ${
                         message.role === 'user'
                           ? 'bg-black text-white'
-                          : 'bg-gray-100 text-black'
+                          : 'bg-neutral-100 text-black'
                       }`}>
                         <p className="text-sm leading-relaxed whitespace-pre-wrap">
                           {message.content}
                         </p>
                         <p 
                           className={`text-xs mt-2 ${
-                            message.role === 'user' ? 'text-gray-300' : 'text-gray-500'
+                            message.role === 'user' ? 'text-neutral-400' : 'text-neutral-500'
                           }`}
                           suppressHydrationWarning
                         >
@@ -218,14 +228,14 @@ export default function BartenderPage() {
                   className="flex justify-start"
                 >
                   <div className="flex items-start space-x-3 max-w-[80%]">
-                    <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-neutral-200 rounded-full flex items-center justify-center">
                       <Bot className="h-4 w-4 text-black" />
                     </div>
-                    <div className="bg-gray-100 rounded-2xl px-4 py-3">
+                    <div className="bg-neutral-100 rounded-2xl px-4 py-3">
                       <div className="flex space-x-1">
-                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                        <div className="w-2 h-2 bg-red-400 rounded-full animate-bounce"></div>
+                        <div className="w-2 h-2 bg-red-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                        <div className="w-2 h-2 bg-red-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                       </div>
                     </div>
                   </div>
@@ -236,15 +246,15 @@ export default function BartenderPage() {
             </div>
 
             {/* Input Area */}
-            <div className="border-t border-gray-200 p-4">
+            <div className="border-t border-neutral-200 p-4">
               <div className="flex items-center space-x-3">
-                <div className="text-black-900 flex-1 relative">
+                <div className="flex-1 relative">
                   <textarea
                     value={inputMessage}
                     onChange={(e) => setInputMessage(e.target.value)}
-                    onKeyPress={handleKeyPress}
+                    onKeyDown={handleKeyDown}
                     placeholder="Ask Bart about drinks, cocktails, or recommendations..."
-                    className="w-full px-4 py-3 text-black border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent resize-none"
+                    className="w-full px-4 py-3 text-black border border-neutral-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent resize-none"
                     rows={1}
                     disabled={isLoading}
                   />
@@ -257,8 +267,8 @@ export default function BartenderPage() {
                   disabled={!inputMessage.trim() || isLoading}
                   className={`p-3 rounded-xl transition-colors ${
                     !inputMessage.trim() || isLoading
-                      ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                      : 'bg-black text-white hover:bg-gray-800'
+                      ? 'bg-neutral-200 text-neutral-400 cursor-not-allowed'
+                      : 'bg-red-600 text-white hover:bg-red-700'
                   }`}
                 >
                   {isLoading ? (
@@ -271,7 +281,7 @@ export default function BartenderPage() {
 
               {/* Action Buttons */}
               <div className="flex items-center justify-between mt-3">
-                <div className="flex items-center space-x-4 text-xs text-gray-500">
+                <div className="flex items-center space-x-4 text-xs text-neutral-500">
                   <span className="flex items-center space-x-1">
                     <Wine className="h-3 w-3" />
                     <span>Drink responsibly</span>
@@ -282,7 +292,7 @@ export default function BartenderPage() {
 
                 <button
                   onClick={clearConversation}
-                  className="text-xs text-gray-500 hover:text-black transition-colors"
+                  className="text-xs text-neutral-500 hover:text-red-600 transition-colors"
                 >
                   Clear chat
                 </button>
@@ -310,7 +320,7 @@ export default function BartenderPage() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setInputMessage(suggestion)}
-                  className="p-3 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition-colors text-left"
+                  className="p-3 bg-neutral-100 hover:bg-neutral-200 rounded-lg text-sm text-neutral-700 transition-colors text-left border border-neutral-200 hover:border-red-200"
                   disabled={isLoading}
                 >
                   {suggestion}

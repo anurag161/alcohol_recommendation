@@ -1,4 +1,4 @@
-# 🍸 DaruGPT - AI-Powered Alcohol Recommendation Platform
+# 🍸 5 Spirits - AI-Powered Alcohol Recommendation Platform
 
 An intelligent bartender powered by AI that provides personalized alcohol recommendations with a focus on responsible drinking.
 
